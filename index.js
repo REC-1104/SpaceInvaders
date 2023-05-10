@@ -3,7 +3,7 @@ import Player from "./player.js";
 import bulletControl from "./bullet.js";
 
 
-
+const bg = document.getElementById("bg");
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const play1 = document.getElementById("play1");
@@ -13,8 +13,8 @@ const shipDec = document.getElementById("ShipDec");
 const enemyInc = document.getElementById("EnemyInc");
 const enemyDec = document.getElementById("EnemyDec");
 const yourTime = document.getElementById("yourtime");
-const bestTime = document.getElementById("besttime");
 const restart = document.getElementById("restart");
+const travel = document.getElementById("travel");
 
 canvas.width = 600;
 canvas.height = 600;
@@ -93,7 +93,25 @@ enemyDec.onclick =  function Edec(){
  }
 }
 
-
+var toggle = true;
+travel.onclick = function Travel(){
+  if(toggle)
+  {
+    bg.style.backgroundImage ="url('images/bg.gif')";
+  bg.style.backgroundRepeat = "no-repeat";
+  bg.style.backgroundSize =" 100% 100vh";
+  travel.innerText ="Wanna Return ?";
+  toggle = false;
+}
+else{
+  bg.style.backgroundImage ="";
+  bg.style.backgroundRepeat = "";
+  bg.style.backgroundSize ="";
+  bg.style.background ="linear-gradient(0deg,rgb(48, 149, 200) ,rgb(78, 4, 251) ,rgb(90, 7, 123))";
+  travel.innerText ="Wanna Travel ?";
+  toggle = true;
+}
+}
 
 
 function displayGameOver() {
