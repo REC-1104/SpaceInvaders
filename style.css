@@ -11,12 +11,12 @@
             padding: 0;
             transition: all .5s linear;
         }
-      h1 {
+      h1#heading {
         margin: 0px;
         margin-bottom: 10px;
         font-size: 100px;
         font-family: 'VT323', monospace;
-        
+         color: #f1f1f1;
       }
      
       body {
@@ -83,7 +83,7 @@
 
 
 .sidenav a:hover, .dropdown-btn:hover {
-  color: #f1f1f1;
+    color: #0d0d0d;
   background-color: rgb(225, 215, 20);
 }
 
