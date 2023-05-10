@@ -3,6 +3,8 @@
       canvas {
         box-shadow: black 20px 10px 50px;
         margin-bottom: 20px;
+        background-image: url("images/bg-main-menu.webp");
+        background-size: 600px 600px;
       }
       *{
             margin: 0;
@@ -62,10 +64,7 @@
   font-family: monospace;
 }
 
-#box{
-  display: flex;
-  
-}
+
 
 .sidenav a, .dropdown-btn {
   padding: 6px 8px 6px 16px;

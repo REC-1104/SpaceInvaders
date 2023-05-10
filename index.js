@@ -167,6 +167,12 @@ function incrementSeconds() {
 }
 
 
-
- setInterval(incrementSeconds, 1000);
+document.addEventListener('keypress',function(e){
+  if(e.key === 'Enter')
+  {
+    setInterval(incrementSeconds, 1000);
  setInterval(game, 1000 / 60);
+  }
+})
+ 
+
