@@ -39,6 +39,7 @@
       
       #restart{
         padding-left: 30px;
+         cursor: pointer;
       }
 
       .container{
