@@ -97,7 +97,7 @@ var toggle = true;
 travel.onclick = function Travel(){
   if(toggle)
   {
-    bg.style.backgroundImage ="url('images/bg.gif')";
+    bg.style.backgroundImage ="url('images/bg-min.gif')";
   bg.style.backgroundRepeat = "no-repeat";
   bg.style.backgroundSize =" 100% 100vh";
   travel.innerText ="Wanna Return ?";
