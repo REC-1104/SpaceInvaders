@@ -15,6 +15,8 @@ const enemyDec = document.getElementById("EnemyDec");
 const yourTime = document.getElementById("yourtime");
 const restart = document.getElementById("restart");
 const travel = document.getElementById("travel");
+const bgsound = new Audio("sounds/Hopes and Dreams (8 Bit Remix Cover Version) [Tribute to Undertale] - 8 Bit Universe.wav");
+const easter = new Audio("sounds/eastermusic.wav");
 
 canvas.width = 600;
 canvas.height = 600;
@@ -116,13 +118,22 @@ else{
 
 function displayGameOver() {
   if (isGameOver) {
-    let text = didWin ? "You Win" : "Game Over";
-    let textOffset = didWin ? 3.5 : 5;
+    if (seconds == 20 && didWin) {
+      let text = "PEW PERSON !" ;
+      let textOffset = 7 ;
 
-    ctx.fillStyle = "white";
-    ctx.font = "100px 'VT323', monospace";
-    ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
-    
+      ctx.fillStyle = "white";
+      ctx.font = "100px 'VT323', monospace";
+      ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+    }
+    else {
+      let text = didWin ? "You Win" : "Game Over";
+      let textOffset = didWin ? 3.5 : 5;
+
+      ctx.fillStyle = "white";
+      ctx.font = "100px 'VT323', monospace";
+      ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+    }
   }
 }
 
@@ -175,12 +186,18 @@ function incrementSeconds() {
     }
     if(isGameOver) {
       clearInterval(incrementSeconds);
-    
+      bgsound.pause()
     restart.onclick = function Restart(){
       isGameOver= false;
       didWin = false;
-      seconds+=4;
-    }
+      seconds += 4;
+      bgsound.play()
+      }
+      if (isGameOver && seconds == 20 && didWin)
+      {
+        bgsound.pause();
+        easter.play();
+      }
   }
 }
 
@@ -189,8 +206,11 @@ document.addEventListener('keypress',function(e){
   if(e.key === 'Enter')
   {
     setInterval(incrementSeconds, 1000);
- setInterval(game, 1000 / 60);
+    setInterval(game, 1000 / 60);
+    bgsound.play();
   }
 })
+
+
  
 
